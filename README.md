@@ -1,4 +1,4 @@
-#SWAPi
+# SWAPI
 Проект в своей основе использует API https://swapi.py4e.com/, аналогичный https://swapi.dev/.
 Для запуска проекта нужно иметь установленый angular CLI (npm install -g @angular/cli), и прописать в терминале ng serve либо npm run start
 # NgBasics
