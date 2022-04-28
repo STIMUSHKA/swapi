@@ -44,6 +44,7 @@ export class PersonCardComponent implements OnInit {
   public filmsCatalog: Map<any, any> = this.service.filmsCatalog
   public species: string = ''
   public homeworld: string = ''
+
   constructor(private http: HttpClient, private service: SwapiService) { }
 
   ngOnInit(): void {
@@ -56,8 +57,6 @@ export class PersonCardComponent implements OnInit {
         Planet => { this.homeworld = Planet.name},
         error => console.error(error));
   }
-
-
 }
 
 

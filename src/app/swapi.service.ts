@@ -1,6 +1,6 @@
-import {Result, ZoneSymbolValue, Film, Films} from "../shared/interfaces"
+import {Result, Film, Films} from "../shared/interfaces"
 import {HttpClient} from "@angular/common/http";
-import {Injectable, OnInit} from "@angular/core";
+import {Injectable} from "@angular/core";
 
 @Injectable()
 export class SwapiService {
@@ -15,7 +15,6 @@ export class SwapiService {
       this.films = Films.results;
       for (let film of this.films) {
         this.filmsCatalog.set(film.url, film.title)
-        console.log(film)
       }
     }, error => console.error(error));
 

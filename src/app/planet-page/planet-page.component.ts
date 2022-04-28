@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {SwapiService} from "../swapi.service";
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
-
+import {Person} from "../../shared/interfaces";
 
 @Component({
   selector: 'app-planet-page',
@@ -30,14 +30,15 @@ export class PlanetPageComponent{
   public personsMale: Person[] = []
   public personsFemale: Person[] = []
   public gender: string = 'all'
+  rootURL = "https://swapi.py4e.com/api/";
 
   constructor(private http: HttpClient, private service: SwapiService, private route: ActivatedRoute) {
-    console.log(this.filmsCatalog, 'planet-page constructor')
-
     this.id = this.route.snapshot.params['id']
+
     this.http.get<Planet>(this.rootURL + 'planets/' + this.id + '/').subscribe(
       Planet => {
         this.planetInfo = Planet;
+
         for (let person of Planet.residents) {
           this.http.get<Person>(''+ person).subscribe(
             Person => {
@@ -49,17 +50,10 @@ export class PlanetPageComponent{
               }
             },
             error => console.error(error));
-
         }
       },
       error => console.error(error));
-
-
   }
-
-
-  rootURL = "https://swapi.py4e.com/api/";
-
 }
 
 export interface Planet {
@@ -74,21 +68,5 @@ export interface Planet {
   population: string;
   residents: string[];
   films: string[];
-  url: string;
-}
-export interface Person {
-  name: string;
-  height: string;
-  mass: string;
-  hair_color: string;
-  skin_color: string;
-  eye_color: string;
-  birth_year: string;
-  gender: string;
-  homeworld: string;
-  films: string[];
-  species: string[];
-  vehicles: string[];
-  starships: string[];
   url: string;
 }

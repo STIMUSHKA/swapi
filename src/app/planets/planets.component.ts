@@ -15,8 +15,12 @@ export class PlanetsComponent {
   public page: number = 1
   public previous: string = 'disabled'
   public next: string = 'enabled'
+  public rootURL = "https://swapi.py4e.com/api/";
 
-  constructor(private service: SwapiService, private http: HttpClient, private route: ActivatedRoute, private router: Router) {
+  constructor(private service: SwapiService,
+              private http: HttpClient,
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -26,18 +30,18 @@ export class PlanetsComponent {
           this.http.get<ZoneSymbolValue>(this.rootURL + 'planets/?page=' + this.page)
             .subscribe((ZoneSymbolValue) => {
                 this.planets = ZoneSymbolValue.results;
+
                 if (ZoneSymbolValue.previous == null) {
                   this.previous = 'disabled'
                 } else {
                   this.previous = 'enabled'
                 }
-                ;
+
                 if (ZoneSymbolValue.next == null) {
                   this.next = 'disabled'
                 } else {
                   this.next = 'enabled'
                 }
-
               },
               error => console.error(error));
         }
@@ -59,7 +63,5 @@ export class PlanetsComponent {
       }
     })
   }
-
-  rootURL = "https://swapi.py4e.com/api/";
 
 }
