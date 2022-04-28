@@ -3,7 +3,7 @@
 
 Загрузить пакеты: npm install
 
-Для запуска проекта нужно иметь установленый angular CLI (npm install -g @angular/cli), и прописать в терминале (ng serve) либо (npm run start)
+Для запуска проекта нужно иметь установленный angular CLI (npm install -g @angular/cli), и прописать в терминале (ng serve) либо (npm run start)
 # NgBasics
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
