@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {SwapiService} from "../swapi.service";
 import {HttpClient} from "@angular/common/http";
 import {Planet} from "../planet-page/planet-page.component";
+import {Species} from "../../shared/interfaces";
 
 @Component({
   selector: 'app-person-card',
@@ -58,36 +59,5 @@ export class PersonCardComponent implements OnInit {
 
 
 }
-export interface Person {
-  name: string;
-  height: string;
-  mass: string;
-  hair_color: string;
-  skin_color: string;
-  eye_color: string;
-  birth_year: string;
-  gender: string;
-  homeworld: string;
-  films: string[];
-  species: string[];
-  vehicles: string[];
-  starships: string[];
-  url: string;
-}
-export interface Species {
-  average_height: string;
-  average_lifespan: string;
-  classification: string;
-  created: Date;
-  designation: string;
-  edited: Date;
-  eye_colors: string;
-  hair_colors: string;
-  homeworld: string;
-  language: string;
-  name: string;
-  people: string[];
-  films: string[];
-  skin_colors: string;
-  url: string;
-}
+
+
