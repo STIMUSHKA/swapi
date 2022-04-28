@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{personInfo.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Birth year: {{personInfo.birth_year}}  </h6>
+    <h6 class="card-subtitle mb-2 text-muted">Eye color: {{personInfo.eye_color}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Films:
+      <app-film *ngFor="let film of personInfo.films" [film]="filmsCatalog.get(film)"></app-film>
+    </h6>
+    <h6 class="card-subtitle mb-2 text-muted">Gender: {{personInfo.gender}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Hari color: {{personInfo.hair_color}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Height: {{personInfo.height}} cm</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Homeworld: {{homeworld}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Mass: {{personInfo.mass}} kg</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Skin color: {{personInfo.skin_color}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Species: {{this.species}}</h6>
+  </div>
+</div>

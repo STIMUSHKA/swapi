@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{planetInfo.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Diameter: {{planetInfo.diameter}} km </h6>
+    <h6 class="card-subtitle mb-2 text-muted">Climate: {{planetInfo.climate}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Films:
+      <app-film *ngFor="let film of planetInfo.films" [film]="filmsCatalog.get(film)"></app-film>
+    </h6>
+    <h6 class="card-subtitle mb-2 text-muted">Gravity: {{planetInfo.gravity}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Orbital preiod: {{planetInfo.orbital_period}} d</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Population: {{planetInfo.population}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Rotation period: {{planetInfo.rotation_period}} h</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Residents: {{planetInfo.residents.length}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Surface water: {{planetInfo.surface_water}} %</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Terrain: {{planetInfo.terrain}}</h6>
+    <button class="btn-dark" [routerLink]="['/planet', getPlanetId()]" >Посмотреть</button>
+<!--    <button class="btn-dark" (click)="getPlanetId()" >Посмотреть</button>-->
+
+  </div>
+</div>
