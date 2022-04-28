@@ -39,8 +39,6 @@ export class PlanetComponent {
   @Input() link: string = ''
   public filmsCatalog: Map<any, any> = this.service.filmsCatalog
 
-  rootURL = "https://swapi.py4e.com/api/";
-
   constructor(private http: HttpClient, private service: SwapiService) {
     this.planetInfo.url.split('').reverse()
     this.getPlanetId()

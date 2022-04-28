@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {SwapiService} from "../swapi.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Result, ZoneSymbolValue} from "../../shared/interfaces";
-
+import {rootURL} from "../../shared/rootURL";
 @Component({
   selector: 'app-planets',
   templateUrl: './planets.component.html',
@@ -15,7 +15,7 @@ export class PlanetsComponent {
   public page: number = 1
   public previous: string = 'disabled'
   public next: string = 'enabled'
-  public rootURL = "https://swapi.py4e.com/api/";
+
 
   constructor(private service: SwapiService,
               private http: HttpClient,
@@ -27,7 +27,7 @@ export class PlanetsComponent {
     this.route.queryParams
       .subscribe(
         (params: Params) => {
-          this.http.get<ZoneSymbolValue>(this.rootURL + 'planets/?page=' + this.page)
+          this.http.get<ZoneSymbolValue>(rootURL + 'planets/?page=' + this.page)
             .subscribe((ZoneSymbolValue) => {
                 this.planets = ZoneSymbolValue.results;
 

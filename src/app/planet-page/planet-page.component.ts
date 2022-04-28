@@ -3,6 +3,7 @@ import {SwapiService} from "../swapi.service";
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
 import {Person} from "../../shared/interfaces";
+import {rootURL} from "../../shared/rootURL";
 
 @Component({
   selector: 'app-planet-page',
@@ -30,12 +31,11 @@ export class PlanetPageComponent{
   public personsMale: Person[] = []
   public personsFemale: Person[] = []
   public gender: string = 'all'
-  rootURL = "https://swapi.py4e.com/api/";
 
   constructor(private http: HttpClient, private service: SwapiService, private route: ActivatedRoute) {
     this.id = this.route.snapshot.params['id']
 
-    this.http.get<Planet>(this.rootURL + 'planets/' + this.id + '/').subscribe(
+    this.http.get<Planet>(rootURL + 'planets/' + this.id + '/').subscribe(
       Planet => {
         this.planetInfo = Planet;
 
